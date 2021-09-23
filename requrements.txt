@@ -1,3 +1,4 @@
 mysql-connector-python==8.0.26
 protobuf==3.18.0
 PyMySQL==1.0.2
+python-dotenv==0.19.0
