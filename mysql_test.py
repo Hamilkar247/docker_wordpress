@@ -1,11 +1,21 @@
 import mysql.connector
 
+import mysql.connector
+from dotenv import load_dotenv
+from pathlib import Path
+import os
+
+load_dotenv()
+env_path = Path(".")
+load_dotenv(dotenv_path=env_path)
+
+
 mydb = mysql.connector.connect(
   host="localhost",
-  user="db_user",
-  password="db_pass",
-  port="3310",
-  database="db_name"
+  user=os.getenv("DB_USER"),
+  password=os.getenv("DB_PASSWORD"),
+  port=os.getenv("MYSQL_PORT"),
+  database=os.getenv("DB_NAME")
 )
 
 print(mydb)
