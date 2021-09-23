@@ -4,6 +4,7 @@
 `docker-compose down
 4) Usuń kontenery i ich dane
 `docker-compose down --volumes`
+By widzieć recordy bazy - domyślnie http://127.0.0.1:9090 tutaj się można zalogować na dane mysqla
 
 #uwaga db dbhost to nazwa serwisu
 #uwaga 2 - w adminerze serwer to również ta nazwa obowiązuje
