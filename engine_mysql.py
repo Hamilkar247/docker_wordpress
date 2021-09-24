@@ -1,14 +1,14 @@
-import mysql.connector
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-mydb = mysql.connector.connect(
-  host="127.0.0.1:3310", user="db_user", password="db_pass", database="db_name"
+# SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
+SQLALCHEMY_DATABASE_URL = "mysql://db_user:db_pass@mysql_db/db_name"
+
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )
-mycursor = mydb.cursor()
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-mycursor.execute("CREATE DATABASE mydatabase")
+Base = declarative_base()
 
-
-mycursor.execute("SHOW DATABASES")
-
-for x in mycursor:
-  print(x)
